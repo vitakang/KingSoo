@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.jcone.hieform.management.util.AES128Cipher;
 
@@ -36,5 +37,10 @@ public class ManagementController {
 	@RequestMapping("loginPage")
 	public String loginPage() {
 		return "managementPage/login";
+	}
+	
+	@RequestMapping("main")
+	public ModelAndView main(){
+		return new ModelAndView("managementPage/main");
 	}
 }

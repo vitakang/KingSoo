@@ -17,7 +17,12 @@
 <link rel="stylesheet" href="../resources/dist/css/AdminLTE.min.css">
 <!-- iCheck -->
 <link rel="stylesheet" href="../resources/plugins/iCheck/square/blue.css">
-
+	<script src="../resources/plugins/jQuery/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	function login() {
+		location.href="/hieform/eform/main";
+	}
+</script>
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -28,10 +33,7 @@
 <body class="hold-transition login-page">
 	<div class="login-box">
 		<div class="login-logo">
-			<a href="../../index2.html">
-				<b>EFORM</b>
-				MANAGEMENT
-			</a>
+			<b>EFORM</b>MANAGEMENT
 		</div>
 		<!-- /.login-logo -->
 		<div class="login-box-body">
@@ -39,39 +41,31 @@
 
 			<form action="../../index2.html" method="post">
 				<div class="form-group has-feedback">
-					<input type="email" class="form-control" placeholder="Email"> <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+					<input type="email" class="form-control" placeholder="ID"> <span class="form-control-feedback"></span>
 				</div>
 				<div class="form-group has-feedback">
-					<input type="password" class="form-control" placeholder="Password"> <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+					<input type="password" class="form-control" placeholder="PASSWORD"> <span class="form-control-feedback"></span>
 				</div>
 				<div class="row">
 					<div class="col-xs-8">
 						<div class="checkbox icheck">
-							<label>
-								<input type="checkbox"> Remember Me
-							</label>
 						</div>
 					</div>
 					<!-- /.col -->
 					<div class="col-xs-4">
-						<button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+						<button type="button" class="btn btn-primary btn-block btn-flat" onclick="login()">LOGIN</button>
 					</div>
 					<!-- /.col -->
 				</div>
 			</form>
 			<!-- /.social-auth-links -->
-
-			<a href="#">I forgot my password</a>
-			<br>
-			<a href="register.html" class="text-center">Register a new membership</a>
-
 		</div>
 		<!-- /.login-box-body -->
 	</div>
 	<!-- /.login-box -->
 
-	<!-- jQuery 2.2.3 -->
-	<script src="../resources/plugins/jQuery/jquery-2.2.3.min.js"></script>
+	<!-- jQuery 3.1.1 -->
+	<script src="../resources/plugins/jQuery/jquery-3.1.1.min.js"></script>
 	<!-- Bootstrap 3.3.6 -->
 	<script src="../resources/bootstrap/js/bootstrap.min.js"></script>
 	<!-- iCheck -->
