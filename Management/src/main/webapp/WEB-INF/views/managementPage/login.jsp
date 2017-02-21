@@ -20,7 +20,37 @@
 	<script src="../resources/plugins/jQuery/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
 	function login() {
-		location.href="/hieform/eform/main";
+		var id = $("#userId").val();
+		var pw = $("#userPw").val();
+		var serData = $("form[name=loginForm]").serialize();
+
+		$.ajax({
+			type : "POST",
+			url : "login",
+			data : serData,
+			datatype : "json",
+			success : function(obj) {
+				/* var json = JSON.parse(obj);
+				var msg = null; */
+				console.log(obj);
+				if (obj == 'F') {
+					msg = "로그인 실패";
+					alert(msg);
+				} else {
+					msg = "로그인 성공";
+					alert(msg);
+					location.href = "main";
+				}
+
+			},
+			complete : function(data) {// 응답이 종료되면 실행, 잘 사용하지않는다
+			},
+			error : function(xhr, status, error) {
+				alert("ERROR!!!");
+			}
+		});
+
+		// location.href="/hieform/eform/main";
 	}
 </script>
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -33,18 +63,18 @@
 <body class="hold-transition login-page">
 	<div class="login-box">
 		<div class="login-logo">
-			<b>EFORM</b>MANAGEMENT
+			<b>EFORM</b> MANAGEMENT
 		</div>
 		<!-- /.login-logo -->
 		<div class="login-box-body">
 			<p class="login-box-msg">Sign in to start your session</p>
 
-			<form action="../../index2.html" method="post">
+			<form method="post" name="loginForm">
 				<div class="form-group has-feedback">
-					<input type="email" class="form-control" placeholder="ID"> <span class="form-control-feedback"></span>
+					<input type="email" class="form-control" placeholder="ID" id="userId" name="id"> <span class="form-control-feedback"></span>
 				</div>
 				<div class="form-group has-feedback">
-					<input type="password" class="form-control" placeholder="PASSWORD"> <span class="form-control-feedback"></span>
+					<input type="password" class="form-control" placeholder="PASSWORD" id="userPw" name="pw"> <span class="form-control-feedback"></span>
 				</div>
 				<div class="row">
 					<div class="col-xs-8">

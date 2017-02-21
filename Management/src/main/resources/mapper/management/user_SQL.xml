@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="management_user">
+	<resultMap type="User" id="user_info_map">
+		<result property="id" column="user_id" />
+		<result property="pw" column="user_pw" />
+	</resultMap>
+
+	<insert id="insertUserInfo" parameterType="User">
+		INSERT INTO 
+		USER_INFO(user_id, user_pw, email, company) 
+		VALUES(#{id},#{pw},#{email},#{company})
+	</insert>
+	
+	<select id="getUserList" resultMap="user_info_map">
+		SELECT user_id, user_pw
+		FROM USER_INFO
+	</select>
+</mapper>
