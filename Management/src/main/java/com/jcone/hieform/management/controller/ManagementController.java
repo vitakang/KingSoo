@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.jcone.hieform.management.model.ManagementModel;
 import com.jcone.hieform.management.service.UserService;
 import com.jcone.hieform.management.vo.User;
 
@@ -41,5 +42,33 @@ public class ManagementController {
 	@RequestMapping("main")
 	public ModelAndView main() {
 		return new ModelAndView("managementPage/main");
+	}
+
+	/**
+	 * 상태 상세조회
+	 * */
+	@RequestMapping("viewState")
+	public ModelAndView viewState(){
+		return new ModelAndView("managementPage/detailPage");
+	}
+
+	/**
+	 * 검색 AJAX
+	 * */
+	@ResponseBody
+	@RequestMapping("searchData")
+	public String searchData(ManagementModel model){
+		LOGGER.info("============ INPUT DATA ============");
+		LOGGER.info(" TEXT  ==>  "+model.getSearchText());
+		LOGGER.info(" TYPE  ==>  "+model.getSearchType());
+		LOGGER.info("====================================");
+		
+		
+		return "?????";
+	}
+	
+	@RequestMapping("logOut")
+	public ModelAndView logOut(){
+		return new ModelAndView("redirect:loginPage");
 	}
 }
